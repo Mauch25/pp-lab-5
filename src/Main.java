@@ -6,20 +6,24 @@ import company.utils.MathUtils;
 
 public class Main {
     public static void main(String[] args) {
+       
+        Person[] people = new Person[5];
+        final int b = 10;
         try {
-            Person person = new Person("Albert", 30);
-            System.out.println("Name: " + person.getName() + ", Age: " + person.getAge());
-        
-            int num1 = 5;
-            int num2 = 7;
-            
-            int sum = MathUtils.add(num1, num2);
-            System.out.println("Sum of " + num1 + " and " + num2 + " is: " + sum);
-            
-            Messenger messenger = new EmailMessenger();
-            messenger.sendMessage("The sum of " + num1 + " and " + num2 + " is: " + sum);
-        
-        } 
+            people[0] = new Person("Jan Doeński", 30);
+            people[1] = new Person("Jan Kowalski", 25);
+            people[2] = new Person("Włodzimierz Biały", 40);
+            people[3] = new Person("Michał Wiśniewski", 35);
+            people[4] = new Person("Mike Tyson", 28);
+
+            for (Person person : people) {
+                int value = MathUtils.add(person.getAge(), b );
+                String message = "Value for " + person.getName() + ": " + value;
+                
+                Messenger messenger = new EmailMessenger();
+                messenger.sendMessage(message);
+            }
+        }
         
         
         
